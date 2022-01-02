@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">repository-search-app</string>
+    <string name="app_name">GitHub Repository 검색</string>
+    <string name="search_hint">검색어를 입력하세요</string>
 </resources>
