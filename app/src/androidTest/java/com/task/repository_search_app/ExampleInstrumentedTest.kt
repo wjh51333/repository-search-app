@@ -1,4 +1,4 @@
-package com.codelab.repository_search_app
+package com.task.repository_search_app
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.codelab.repository_search_app", appContext.packageName)
+        assertEquals("com.task.repository_search_app", appContext.packageName)
     }
 }

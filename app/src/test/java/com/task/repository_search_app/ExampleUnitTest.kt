@@ -1,4 +1,4 @@
-package com.codelab.repository_search_app
+package com.task.repository_search_app
 
 import org.junit.Test
 
