@@ -2,9 +2,12 @@ package com.task.repository_search_app.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.task.repository_search_app.R
 import com.task.repository_search_app.adapter.RepoAdapter
 import com.task.repository_search_app.databinding.ActivityMainBinding
@@ -28,20 +31,32 @@ class MainActivity : AppCompatActivity() {
 
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                return true
-            }
-
-            override fun onQueryTextChange(query: String?): Boolean {
                 query?.let { viewModel.searchRepos(query!!) }
                 viewModel.repos.observe(this@MainActivity) { repos ->
                     initAdapter(repos)
                 }
                 return true
             }
+
+            override fun onQueryTextChange(query: String?): Boolean {
+                return true
+            }
         })
     }
 
     private fun initAdapter(repos : List<Repo>) {
+        val repoAdapter = RepoAdapter(repos).apply {
+        stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+            setItemClickListener(object : RepoAdapter.ItemClickListener {
+                override fun onClick(view: View, url: String) {
+                    // repository url 연결
+                }
+            })
+        }
 
+        binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            adapter = repoAdapter
+        }
     }
 }
