@@ -1,5 +1,6 @@
 package com.task.repository_search_app.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -50,6 +51,10 @@ class MainActivity : AppCompatActivity() {
             setItemClickListener(object : RepoAdapter.ItemClickListener {
                 override fun onClick(view: View, url: String) {
                     // repository url 연결
+                    val intent = Intent(this@MainActivity, RepoActivity::class.java).apply {
+                        putExtra("url", url)
+                    }
+                    startActivity(intent)
                 }
             })
         }
