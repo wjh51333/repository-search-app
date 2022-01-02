@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_padding_size">20dp</dimen>
+    <dimen name="recyclerview_padding_size">10dp</dimen>
+
+    <dimen name="list_padding_size">10dp</dimen>
+    <dimen name="list_text_margin_left">10dp</dimen>
+    <dimen name="list_font_size">20sp</dimen>
+
+    <dimen name="repo_icon_size">30dp</dimen>
+
+
+</resources>
